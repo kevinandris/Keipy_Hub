@@ -91,3 +91,5 @@ body,
   background-color: #ab40ab;
   /* background-color: #eaa7ea; */
 }
+
+@import "@uploadthing/react/styles.css";
