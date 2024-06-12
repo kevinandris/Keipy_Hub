@@ -22,10 +22,10 @@ const Topbar = () => {
 
       <div className="max-md:hidden w-[400px] rounded-full flex">
         <input
-          className="flex-grow bg-[#eaa7ea] text-[#000] rounded-l-full border-none outline-none text-sm pl-4 py-3"
+          className="flex-grow bg-[#ead5f4] text-[#000] rounded-l-full border-none outline-none text-sm pl-4 py-3"
           placeholder="Search for courses"
         />
-        <button className="bg-[#842584] rounded-r-full border-none outline-none cursor-pointer px-4 py-3 hover:bg-[#842584]/70">
+        <button className="bg-[#9a369a] rounded-r-full border-none outline-none cursor-pointer px-4 py-3 hover:bg-[#842584]/70">
           <Search className="h-4 w-4" />
         </button>
       </div>

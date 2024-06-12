@@ -28,7 +28,7 @@ const Sidebar = () => {
           className={`flex items-center gap-4 p-3 rounded-lg hover:bg-[#eaa7ea]/90
             ${
               pathname.startsWith(route.path) &&
-              "bg-[#ad61ad] hover:bg-[#eaa7ea]/90"
+              "bg-[#ead5f4] hover:bg-[#eaa7ea]/90"
             }
           `}
         >
