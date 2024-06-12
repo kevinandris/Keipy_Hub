@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { PlusCircle } from "lucide-react";
+import { File, Loader2, PlusCircle, X } from "lucide-react";
 import FileUpload from "@/components/custom/FileUpload";
 
 const formSchema = z.object({
@@ -48,6 +48,8 @@ const ResourceForm = ({ section, courseId }: ResourceFormProps) => {
     },
   });
 
+  const { isValid, isSubmitting } = form.formState;
+
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -64,6 +66,20 @@ const ResourceForm = ({ section, courseId }: ResourceFormProps) => {
     }
   };
 
+  const onDelete = async (id: string) => {
+    try {
+      await axios.post(
+        `/api/courses/${courseId}/sections/${section.id}/resources/${id}`
+      );
+      toast.success("Resource deleted!!");
+      form.reset();
+      router.refresh();
+    } catch (error) {
+      toast.error("Something went wrong! ");
+      console.log("Failed to delete the resource", error);
+    }
+  };
+
   return (
     <>
       <div className="flex gap-2 items-center text-xl font-bold mt-12">
@@ -74,45 +90,76 @@ const ResourceForm = ({ section, courseId }: ResourceFormProps) => {
         Add resources to this section to help students learn better.
       </p>
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 my-5">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>File Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Ex: Textbook" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      <div className="mt-5 flex-col gap-5">
+        {section.resources.map((resource) => (
+          <div className="flex justify-between bg-[#eaa7ea]/40 rounded-lg text-sm font-medium p-3 mt-2">
+            <div className="flex items-center ">
+              <File className="h-4 w-4 mr-4 " />
+              {resource.name}
+            </div>
+            <button
+              className="text-[#9a369a]"
+              disabled={isSubmitting}
+              onClick={() => onDelete(resource.id)}
+            >
+              {isSubmitting ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <X className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        ))}
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8 my-5"
+          >
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>File Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ex: Textbook" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          {/* == file URL ==  */}
-          <FormField
-            control={form.control}
-            name="fileUrl"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel>Upload File</FormLabel>
-                <FormControl>
-                  <FileUpload
-                    value={field.value || ""}
-                    onChange={(url) => field.onChange(url)}
-                    endpoint="sectionResource"
-                  />
-                </FormControl>
+            {/* == file URL ==  */}
+            <FormField
+              control={form.control}
+              name="fileUrl"
+              render={({ field }) => (
+                <FormItem className="flex flex-col">
+                  <FormLabel>Upload File</FormLabel>
+                  <FormControl>
+                    <FileUpload
+                      value={field.value || ""}
+                      onChange={(url) => field.onChange(url)}
+                      endpoint="sectionResource"
+                      page="Edit Section"
+                    />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <Button type="submit">Upload</Button>
-        </form>
-      </Form>
+            <Button type="submit" disabled={!isValid || isSubmitting}>
+              {isSubmitting ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                "Upload"
+              )}
+            </Button>
+          </form>
+        </Form>
+      </div>
     </>
   );
 };

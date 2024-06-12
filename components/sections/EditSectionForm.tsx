@@ -9,7 +9,8 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { ArrowLeft, Trash } from "lucide-react";
+import { ArrowLeft, Loader2, Trash } from "lucide-react";
+import MuxPlayer from "@mux/mux-player-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +26,7 @@ import { Input } from "@/components/ui/input";
 import RichEditor from "@/components/custom/RichEditor";
 import { Switch } from "@/components/ui/switch";
 import ResourceForm from "./ResourceForm";
+import Delete from "@/components/custom/Delete";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -60,14 +62,19 @@ const EditSectionForm = ({
     },
   });
 
+  const { isValid, isSubmitting } = form.formState;
+
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course Updated");
+      await axios.post(
+        `/api/courses/${courseId}/sections/${section.id}`,
+        values
+      );
+      toast.success("Section Updated");
       router.refresh();
     } catch (error) {
-      console.log("Failed to update the course", error);
+      console.log("Failed to update the section", error);
       toast.error("Something went wrong!");
     }
   };
@@ -84,9 +91,7 @@ const EditSectionForm = ({
 
         <div className="flex gap-4 items-start">
           <Button variant="outline">Publish</Button>
-          <Button>
-            <Trash className="h-4 w-4" />
-          </Button>
+          <Delete item="section" courseId={courseId} sectionId={section.id} />
         </div>
       </div>
 
@@ -134,7 +139,17 @@ const EditSectionForm = ({
             )}
           />
 
-          {/* == Image URL ==  */}
+          {/* >> Show the video */}
+          {section.videoUrl && (
+            <div className="my-5">
+              <MuxPlayer
+                playbackId={section.muxData?.playbackId || ""}
+                className="md:max-w-[600px]"
+              />
+            </div>
+          )}
+
+          {/* == Video URL ==  */}
           <FormField
             control={form.control}
             name="videoUrl"
@@ -146,6 +161,7 @@ const EditSectionForm = ({
                     value={field.value || ""}
                     onChange={(url) => field.onChange(url)}
                     endpoint="sectionVideo"
+                    page="Edit Section"
                   />
                 </FormControl>
 
@@ -181,7 +197,13 @@ const EditSectionForm = ({
                 Cancel
               </Button>
             </Link>
-            <Button type="submit">Save</Button>
+            <Button type="submit" disabled={!isValid || isSubmitting}>
+              {isSubmitting ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                "Save"
+              )}
+            </Button>
           </div>
         </form>
       </Form>

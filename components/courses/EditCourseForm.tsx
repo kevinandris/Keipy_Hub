@@ -22,7 +22,8 @@ import Link from "next/link";
 import axios from "axios";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { Trash } from "lucide-react";
+import { Loader2, Trash } from "lucide-react";
+import Delete from "@/components/custom/Delete";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -86,6 +87,8 @@ const EditCourseForm = ({
     }
   };
 
+  const { isValid, isSubmitting } = form.formState;
+
   const routes = [
     {
       label: "Basic Information",
@@ -112,9 +115,7 @@ const EditCourseForm = ({
 
         <div className="flex gap-4 items-start">
           <Button variant="outline">Publish</Button>
-          <Button>
-            <Trash className="h-4 w-4" />
-          </Button>
+          <Delete item="course" courseId={course.id} />
         </div>
       </div>
 
@@ -244,6 +245,7 @@ const EditCourseForm = ({
                     value={field.value || ""}
                     onChange={(url) => field.onChange(url)}
                     endpoint="courseBanner"
+                    page="Edit Course"
                   />
                 </FormControl>
 
@@ -278,7 +280,13 @@ const EditCourseForm = ({
                 Cancel
               </Button>
             </Link>
-            <Button type="submit">Save</Button>
+            <Button type="submit" disabled={!isValid && isSubmitting}>
+              {isSubmitting ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                "Save"
+              )}
+            </Button>
           </div>
         </form>
       </Form>
