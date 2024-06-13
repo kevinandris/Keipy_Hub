@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 interface PublishButtonProps {
   disabled: boolean;
   courseId: string;
-  sectionId: string;
+  sectionId?: string;
   isPublished: boolean;
   page: string;
 }
@@ -54,7 +54,7 @@ const PublishButton = ({
       onClick={onClick}
     >
       {isLoading ? (
-        <Loader2 className="h-4 w-4" />
+        <Loader2 className="h-4 w-4 animate-spin" />
       ) : isPublished ? (
         "Unpublish"
       ) : (
