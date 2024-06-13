@@ -16,6 +16,9 @@ const CourseBasics = async ({ params }: { params: { courseId: string } }) => {
       id: params.courseId,
       instructorId: userId,
     },
+    include: {
+      sections: true,
+    },
   });
 
   if (!course) {
@@ -32,6 +35,20 @@ const CourseBasics = async ({ params }: { params: { courseId: string } }) => {
   });
 
   const levels = await db.level.findMany();
+
+  const requiredFields = [
+    course.title,
+    course.description,
+    course.categoryId,
+    course.subCategoryId,
+    course.levelId,
+    course.imageUrl,
+    course.price,
+    course.sections.some((section) => section.isPublished),
+  ];
+
+  const requiredFieldsCount = requiredFields.length;
+  const missingFields = requiredFields.filter((field) => !Boolean(field));
 
   return (
     <div className="px-10">
