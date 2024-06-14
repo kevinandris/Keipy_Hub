@@ -1,7 +1,8 @@
 import Stripe from "stripe";
-import { db } from "@/lib/db";
-import { currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
+import { currentUser } from "@clerk/nextjs/server";
+
+import { db } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
 
 export const POST = async (
@@ -20,7 +21,7 @@ export const POST = async (
     });
 
     if (!course) {
-      return new NextResponse("Course cannot be found", { status: 404 });
+      return new NextResponse("Course Not found", { status: 404 });
     }
 
     const purchase = await db.purchase.findUnique({
@@ -29,7 +30,8 @@ export const POST = async (
       },
     });
 
-    if (!purchase) {
+    /* Don't put ! */
+    if (purchase) {
       return new NextResponse("Course Already Purchased", { status: 400 });
     }
 
