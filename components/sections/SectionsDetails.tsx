@@ -11,7 +11,11 @@ import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import axios from "axios";
-import { Loader2 } from "lucide-react";
+import { File, Loader2, Lock } from "lucide-react";
+import ReadText from "@/components/custom/ReadText";
+import MuxPlayer from "@mux/mux-player-react";
+import Link from "next/link";
+import ProgressButton from "./ProgressButton";
 
 interface SectionsDetailsProps {
   course: Course;
@@ -31,6 +35,7 @@ const SectionsDetails = ({
   progress,
 }: SectionsDetailsProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const isLocked = !purchase && !section.isFree;
 
   const buyCourse = async () => {
     try {
@@ -58,8 +63,42 @@ const SectionsDetails = ({
             )}
           </Button>
         ) : (
-          <Button>Mark as complete</Button>
+          <ProgressButton
+            courseId={course.id}
+            sectionId={section.id}
+            isCompleted={!!progress?.isCompleted} // !! convert the falsy values to boolean false
+          />
         )}
+      </div>
+
+      <ReadText value={section.description!} />
+
+      {isLocked ? (
+        <div className="px-10 flex flex-col gap-5 items-center bg-[#eaa7ea]">
+          <Lock className="h-8 w-8" />
+          <p className="text-sm font-bold">
+            Video for this section is locked. Please buy the course to access
+          </p>
+        </div>
+      ) : (
+        <MuxPlayer
+          playbackId={muxData?.playbackId || ""}
+          className="md:max-w-[600px]"
+        />
+      )}
+
+      <div>
+        <h2 className="text-xl font-bold mb-5">Resources</h2>
+        {resources.map((resource) => (
+          <Link
+            href={resource.fileUrl}
+            target="_blank"
+            className="flex items-center bg-[#ead5f4] rounded-lg font-medium p-3"
+          >
+            <File className="h-4 w-4 mr-4 " />
+            {resource.name}
+          </Link>
+        ))}
       </div>
     </div>
   );

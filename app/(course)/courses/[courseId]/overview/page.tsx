@@ -64,7 +64,7 @@ const CourseOverview = async ({ params }: { params: { courseId: string } }) => {
 
       <div className="flex flex-col gap-2">
         <p className="font-bold">Description:</p>
-        <ReadText value={course.description} />
+        <ReadText value={course.description!} />
       </div>
     </div>
   );
