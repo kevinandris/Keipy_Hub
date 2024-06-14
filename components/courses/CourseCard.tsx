@@ -53,7 +53,7 @@ const CourseCard = async ({ course }: { course: Course }) => {
           )}
 
           {level && (
-            <div>
+            <div className="flex gap-1">
               <Gem size={20} />
               <p>{level.name}</p>
             </div>
