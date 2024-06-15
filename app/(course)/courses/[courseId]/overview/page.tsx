@@ -1,4 +1,5 @@
 import ReadText from "@/components/custom/ReadText";
+import SectionMenu from "@/components/layout/SectionMenu";
 import { db } from "@/lib/db";
 import { clerkClient } from "@clerk/nextjs/server";
 import Image from "next/image";
@@ -8,6 +9,14 @@ const CourseOverview = async ({ params }: { params: { courseId: string } }) => {
   const course = await db.course.findUnique({
     where: {
       id: params.courseId,
+      isPublished: true,
+    },
+    include: {
+      sections: {
+        where: {
+          isPublished: true,
+        },
+      },
     },
   });
 
@@ -29,9 +38,10 @@ const CourseOverview = async ({ params }: { params: { courseId: string } }) => {
 
   return (
     <div className="px-6 py-4 flex flex-col gap-5 text-sm">
-      <div className="flex justify-center">
+      <div className="flex justify-between">
         <h1 className="text-2xl font-bold">{course.title}</h1>
         {/* Section menu for mobile */}
+        <SectionMenu course={course} />
       </div>
 
       <p className="font-medium">{course.subtitle}</p>

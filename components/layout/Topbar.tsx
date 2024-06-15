@@ -1,20 +1,40 @@
 "use client";
 import { UserButton, useAuth } from "@clerk/nextjs";
-import { Search } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Topbar = () => {
   /* >> determine whether there is a sign-in button or not, type "use client" because useAuth() is a hook */
   const { isSignedIn } = useAuth();
   const router = useRouter();
+  const pathName = usePathname();
 
   const topRoutes = [
     { label: "Instructor", path: "/instructor/courses" },
     { label: "Learning", path: "/learning" },
+  ];
+
+  const sidebarRoutes = [
+    {
+      label: "Courses",
+      path: "/instructor/courses",
+    },
+    {
+      label: "Performance",
+      path: "/instructor/performance",
+    },
   ];
 
   /* for query */
@@ -29,7 +49,7 @@ const Topbar = () => {
   return (
     <div className="flex justify-between items-center p-4">
       <Link href="/">
-        <Image src="/logo.png" height={100} width={200} alt="logo" />
+        <Image src="/keipy.png" height={100} width={200} alt="logo" />
       </Link>
 
       <div className="max-md:hidden w-[400px] rounded-full flex">
@@ -59,6 +79,43 @@ const Topbar = () => {
               {route.label}
             </Link>
           ))}
+        </div>
+
+        <div className="w-full max-w-[200px] z-20 sm:hidden">
+          <Sheet>
+            <SheetTrigger>
+              <Menu className="w-5 h-5" />
+            </SheetTrigger>
+            <SheetContent className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
+                {topRoutes.map((route) => (
+                  <Link
+                    href={route.path}
+                    key={route.path}
+                    className="text-sm font-medium hover:text-[#ab40ab]"
+                  >
+                    {route.label}
+                  </Link>
+                ))}
+              </div>
+
+              {pathName.startsWith("/instructor") && (
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-4">
+                    {sidebarRoutes.map((route) => (
+                      <Link
+                        href={route.path}
+                        key={route.path}
+                        className="text-sm font-medium hover:text-[#ab40ab]"
+                      >
+                        {route.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </SheetContent>
+          </Sheet>
         </div>
 
         {isSignedIn ? (

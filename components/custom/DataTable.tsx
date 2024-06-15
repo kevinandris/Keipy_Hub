@@ -84,6 +84,7 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ))}
           </TableHeader>
+
           <TableBody className="text-sm font-medium">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (

@@ -6,13 +6,24 @@ async function main() {
   try {
     const categories = [
       {
-        name: "IT & Software",
+        name: "Engineering",
         subCategories: {
           create: [
-            { name: "Web Development" },
+            { name: "Civil Engineering" },
+            { name: "Electrical and Electronic Engineering" },
+            { name: "Mechanical Engineering" },
+            { name: "Software Engineering" },
+          ],
+        },
+      },
+      {
+        name: "Computer and Information Sciences",
+        subCategories: {
+          create: [
+            { name: "Software Development" },
             { name: "Data Science" },
-            { name: "Cybersecurity" },
-            { name: "Others" },
+            { name: "Networks and Cybersecurity" },
+            { name: "Digital Services" },
           ],
         },
       },
@@ -20,10 +31,10 @@ async function main() {
         name: "Business",
         subCategories: {
           create: [
-            { name: "E-Commerce" },
+            { name: "Accounting" },
             { name: "Marketing" },
             { name: "Finance" },
-            { name: "Others" },
+            { name: "Management and Leadership" },
           ],
         },
       },
@@ -31,21 +42,32 @@ async function main() {
         name: "Design",
         subCategories: {
           create: [
-            { name: "Graphic Design" },
-            { name: "3D & Animation" },
-            { name: "Interior Design" },
-            { name: "Others" },
+            { name: "Fashion Design" },
+            { name: "Industrial Design" },
+            { name: "Interaction Design" },
+            { name: "Communication Design" },
           ],
         },
       },
       {
-        name: "Health",
+        name: "Health Science",
         subCategories: {
           create: [
-            { name: "Fitness" },
-            { name: "Yoga" },
-            { name: "Nutrition" },
-            { name: "Others" },
+            { name: "Nursing" },
+            { name: "Counselling" },
+            { name: "Psychology" },
+            { name: "Midwifery" },
+          ],
+        },
+      },
+      {
+        name: "Sport and Recreation",
+        subCategories: {
+          create: [
+            { name: "Coaching" },
+            { name: "Exercise Science and Nutrition" },
+            { name: "Health and Physical Education" },
+            { name: "Sport and Exercise Science" },
           ],
         },
       },
@@ -68,7 +90,7 @@ async function main() {
       data: [
         { name: "Beginner" },
         { name: "Intermediate" },
-        { name: "Expert" },
+        { name: "Advanced" },
         { name: "All levels" },
       ],
     });
