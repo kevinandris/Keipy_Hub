@@ -1,7 +1,14 @@
 import { db } from "@/lib/db";
 import { clerkClient } from "@clerk/nextjs/server";
 import { Course } from "@prisma/client";
-import { DollarSign, Gem, GemIcon } from "lucide-react";
+import {
+  DollarSign,
+  Gauge,
+  Gem,
+  GemIcon,
+  Layers3,
+  SignalHigh,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -54,7 +61,7 @@ const CourseCard = async ({ course }: { course: Course }) => {
 
           {level && (
             <div className="flex gap-1">
-              <Gem size={20} />
+              <Layers3 size={20} />
               <p>{level.name}</p>
             </div>
           )}
