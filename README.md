@@ -4,7 +4,8 @@
       and have purchased a specific course.
    3) Stripe is used for payment.
    4) Clerk is included for authentication processes including logging in and registring.
-   5) Shadcn components are used for appealing and clean UI/UX design and faster implementation as well. 
+   5) Shadcn components are used for appealing and clean UI/UX design and faster implementation as well.
+   6) Registered users are allowed to publish their own course for selling.
 
 #  Project images:
    1) Main Page
