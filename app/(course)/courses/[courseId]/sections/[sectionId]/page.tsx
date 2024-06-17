@@ -89,8 +89,8 @@ const SectionDetailsPage = async ({
       section={section}
       purchase={purchase}
       muxData={muxData}
-      resources={resources}
       progress={progress}
+      resources={resources}
     />
   );
 };

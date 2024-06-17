@@ -1,6 +1,6 @@
 import { Course, Section } from "@prisma/client";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 const SectionMenu = ({

@@ -22,7 +22,7 @@ const Topbar = () => {
   const pathName = usePathname();
 
   const topRoutes = [
-    { label: "Instructor", path: "/instructor/courses" },
+    { label: "Dashboard", path: "/instructor/courses" },
     { label: "Learning", path: "/learning" },
   ];
 

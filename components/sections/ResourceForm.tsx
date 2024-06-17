@@ -1,6 +1,5 @@
 "use client";
 import { Resource, Section } from "@prisma/client";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -90,6 +89,7 @@ const ResourceForm = ({ section, courseId }: ResourceFormProps) => {
         Add resources to this section to help students learn better.
       </p>
 
+      {/* >> Show the File uploaded */}
       <div className="mt-5 flex-col gap-5">
         {section.resources.map((resource) => (
           <div className="flex justify-between bg-[#eaa7ea]/40 rounded-lg text-sm font-medium p-3 mt-2">
@@ -110,6 +110,7 @@ const ResourceForm = ({ section, courseId }: ResourceFormProps) => {
             </button>
           </div>
         ))}
+
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

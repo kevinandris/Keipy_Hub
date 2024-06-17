@@ -105,9 +105,8 @@ model MuxData {
 }
 
 model Resource {
-  id   String @id @default(uuid())
-  name String
-
+  id      String @id @default(uuid())
+  name    String
   fileUrl String
 
   sectionId String

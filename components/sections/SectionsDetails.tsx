@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Course,
   MuxData,
@@ -57,8 +58,8 @@ const SectionsDetails = ({
         <h1 className="text-2xl font-bold max-md:mb-4">{section.title}</h1>
 
         <div className="flex">
-          <SectionMenu course={course} />
-
+          {/* // ! uncomment this later for mobile menu */}
+          {/* <SectionMenu course={course} /> */}
           {!purchase ? (
             <Button onClick={buyCourse}>
               {isLoading ? (
@@ -71,8 +72,8 @@ const SectionsDetails = ({
             <ProgressButton
               courseId={course.id}
               sectionId={section.id}
-              isCompleted={!!progress?.isCompleted} // !! convert the falsy values to boolean false
-            />
+              isCompleted={!!progress?.isCompleted}
+            /> // !! convert the falsy values to boolean false
           )}
         </div>
       </div>
@@ -80,7 +81,7 @@ const SectionsDetails = ({
       <ReadText value={section.description!} />
 
       {isLocked ? (
-        <div className="px-10 flex flex-col gap-5 items-center bg-[#eaa7ea]">
+        <div className="px-10 flex flex-col gap-5 items-center bg-[#ead5f4]">
           <Lock className="h-8 w-8" />
           <p className="text-sm font-bold">
             Video for this section is locked. Please buy the course to access
@@ -93,10 +94,12 @@ const SectionsDetails = ({
         />
       )}
 
+      {/* // ! Resource is not working */}
       <div>
         <h2 className="text-xl font-bold mb-5">Resources</h2>
         {resources.map((resource) => (
           <Link
+            key={resource.id}
             href={resource.fileUrl}
             target="_blank"
             className="flex items-center bg-[#ead5f4] rounded-lg font-medium p-3"

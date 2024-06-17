@@ -20,7 +20,7 @@ const ProgressButton = ({
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = async () => {
+  const onClick = async () => {
     try {
       setIsLoading(true);
       axios.post(`/api/courses/${courseId}/sections/${sectionId}/progress`, {
@@ -37,10 +37,7 @@ const ProgressButton = ({
   };
 
   return (
-    <Button
-      variant={isCompleted ? "complete" : "default"}
-      onClick={handleClick}
-    >
+    <Button variant={isCompleted ? "complete" : "default"} onClick={onClick}>
       {isLoading ? (
         <Loader2 className="h-4 w-4 animate-spin" />
       ) : isCompleted ? (

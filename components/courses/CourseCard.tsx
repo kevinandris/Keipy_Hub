@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { clerkClient } from "@clerk/nextjs/server";
 import { Course } from "@prisma/client";
-import { Gem } from "lucide-react";
+import { DollarSign, Gem, GemIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -60,7 +60,10 @@ const CourseCard = async ({ course }: { course: Course }) => {
           )}
         </div>
 
-        <p className="text-sm font-bold">${course.price}</p>
+        <div className="flex items-center">
+          <DollarSign className="w-4 h-4" />
+          <p className="text-sm font-semibold">{course.price}</p>
+        </div>
       </div>
     </Link>
   );
