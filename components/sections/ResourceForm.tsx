@@ -92,7 +92,10 @@ const ResourceForm = ({ section, courseId }: ResourceFormProps) => {
       {/* >> Show the File uploaded */}
       <div className="mt-5 flex-col gap-5">
         {section.resources.map((resource) => (
-          <div className="flex justify-between bg-[#eaa7ea]/40 rounded-lg text-sm font-medium p-3 mt-2">
+          <div
+            key={resource.id}
+            className="flex justify-between bg-[#eaa7ea]/40 rounded-lg text-sm font-medium p-3 mt-2"
+          >
             <div className="flex items-center ">
               <File className="h-4 w-4 mr-4 " />
               {resource.name}

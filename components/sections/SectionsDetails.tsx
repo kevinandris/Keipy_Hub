@@ -94,7 +94,6 @@ const SectionsDetails = ({
         />
       )}
 
-      {/* // ! Resource is not working */}
       <div>
         <h2 className="text-xl font-bold mb-5">Resources</h2>
         {resources.map((resource) => (

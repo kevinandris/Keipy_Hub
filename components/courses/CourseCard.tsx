@@ -1,14 +1,7 @@
 import { db } from "@/lib/db";
 import { clerkClient } from "@clerk/nextjs/server";
 import { Course } from "@prisma/client";
-import {
-  DollarSign,
-  Gauge,
-  Gem,
-  GemIcon,
-  Layers3,
-  SignalHigh,
-} from "lucide-react";
+import { DollarSign, Layers3 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
