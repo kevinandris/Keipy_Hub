@@ -122,7 +122,7 @@ const Topbar = () => {
           <UserButton afterSignOutUrl="/sign-in" />
         ) : (
           <Link href="/sign-in">
-            <Button>Sign In</Button>
+            <Button>Login</Button>
           </Link>
         )}
       </div>

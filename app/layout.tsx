@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DynaPuff } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ToasterProvider from "@/components/providers/ToasterProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const dynaPuff = DynaPuff({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Keipy Hub",
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={dynaPuff.className}>
           <ToasterProvider />
           {children}
         </body>
