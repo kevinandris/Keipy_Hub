@@ -14,7 +14,7 @@ function Tasks() {
       {modal && <Modal content={<CreateContent />} />}
       <h1>All Tasks</h1>
       <div className="tasks">
-        {tasks.map((task) => {
+        {tasks.map((task: any) => {
           return (
             <div className="task" key={task._id}>
               <TaskItem
