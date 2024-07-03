@@ -1,5 +1,12 @@
 "use client";
-import { BarChart2, MonitorPlay } from "lucide-react";
+import {
+  BadgeX,
+  BarChart3,
+  BookOpenText,
+  CircleCheckBig,
+  FileHeart,
+  ListChecks,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,14 +15,34 @@ const Sidebar = () => {
 
   const sidebarRoutes = [
     {
-      icon: <MonitorPlay />,
+      icon: <BookOpenText />,
       label: "Courses",
       path: "/instructor/courses",
     },
     {
-      icon: <BarChart2 />,
-      label: "Performance",
+      icon: <BarChart3 />,
+      label: "Income Statistics",
       path: "/instructor/performance",
+    },
+    {
+      icon: <ListChecks />,
+      label: "All Tasks",
+      path: "/instructor/tasks",
+    },
+    {
+      icon: <FileHeart />,
+      label: "Prioritized Tasks",
+      path: "/instructor/prioritized-tasks",
+    },
+    {
+      icon: <CircleCheckBig />,
+      label: "Completed Tasks",
+      path: "/instructor/completed-tasks",
+    },
+    {
+      icon: <BadgeX />,
+      label: "Incomplete Tasks",
+      path: "/instructor/incomplete-tasks",
     },
   ];
 

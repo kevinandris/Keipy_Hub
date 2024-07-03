@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import Sidebar from "@/components/layout/Sidebar";
 import Topbar from "@/components/layout/Topbar";
+import { useGlobalState } from "../context/globalProvider";
 
 const InstructorLayout = ({ children }: { children: React.ReactNode }) => {
   /* ensure the user signs in */
@@ -12,6 +13,7 @@ const InstructorLayout = ({ children }: { children: React.ReactNode }) => {
   if (!userId) {
     return redirect("/sign-in");
   }
+
   return (
     <div className="h-full flex flex-col">
       <Topbar />

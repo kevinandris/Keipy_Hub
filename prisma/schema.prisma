@@ -156,3 +156,16 @@ model StripeCustomer {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
+
+model Task {
+  id          String  @id @default(cuid()) @map("_id")
+  title       String
+  description String?
+  date        String?
+  isCompleted Boolean @default(false)
+  IsImportant Boolean @default(false)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  userId    String
+}
