@@ -1,5 +1,6 @@
 "use client";
 import { MailCheck, PhoneCall } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
@@ -8,7 +9,7 @@ const Footer = () => {
     <FooterStyle>
       <div className="footer_left">
         <a href="/">
-          <img src="/keipy-hub.png" alt="logo" width={200} />
+          <Image src="/keipy-hub.png" alt="logo" width={200} height={40} />
         </a>
       </div>
 

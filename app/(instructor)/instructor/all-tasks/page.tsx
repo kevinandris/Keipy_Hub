@@ -2,9 +2,9 @@
 import Tasks from "@/components/tasks/Tasks";
 import { useGlobalState } from "@/app/context/globalProvider";
 
-const page = () => {
+const AllTasks = () => {
   const { tasks } = useGlobalState();
   return <Tasks title="Your Tasks" tasks={tasks} />;
 };
 
-export default page;
+export default AllTasks;

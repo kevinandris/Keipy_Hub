@@ -3,9 +3,9 @@
 import { useGlobalState } from "@/app/context/globalProvider";
 import Tasks from "../../../../components/tasks/Tasks";
 
-const page = () => {
+const PrioritizedTasks = () => {
   const { prioritizedTasks } = useGlobalState();
   return <Tasks title="Prioritized Tasks" tasks={prioritizedTasks} />;
 };
 
-export default page;
+export default PrioritizedTasks;
