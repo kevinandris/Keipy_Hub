@@ -4,6 +4,7 @@ import Categories from "@/components/custom/Categories";
 import CourseCard from "@/components/courses/CourseCard";
 import Footer from "@/components/home/Footer";
 import Hero from "@/components/home/Hero";
+import CopyRight from "@/components/home/CopyRight";
 
 export default async function Home() {
   const categories = await db.category.findMany({
@@ -35,6 +36,7 @@ export default async function Home() {
       </div>
 
       <Footer />
+      <CopyRight />
     </div>
   );
 }

@@ -55,6 +55,7 @@ const FooterStyle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    /* margin-bottom: 2rem; */
 
     .lists {
       display: flex;
@@ -62,6 +63,14 @@ const FooterStyle = styled.div`
       gap: 0.5rem;
       cursor: pointer;
 
+      &:hover {
+        color: #842584;
+      }
+    }
+
+    .copyRight {
+      /* margin-top: 2rem; */
+      cursor: pointer;
       &:hover {
         color: #842584;
       }
