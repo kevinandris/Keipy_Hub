@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
 import axios from "axios";
-import SectionList from "@/components/sections/SectionList";
+// import SectionList from "@/components/sections/SectionList";
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
@@ -96,13 +96,13 @@ const CreateSectionForm = ({
         ))}
       </div>
 
-      <SectionList
+      {/* <SectionList
         items={course.sections || []}
         onReorder={onReorder}
         onEdit={(id) =>
           router.push(`/instructor/courses/${course.id}/sections/${id}`)
         }
-      />
+      /> */}
 
       <h1 className="text-xl font-bold mt-5">Add New Section</h1>
 
