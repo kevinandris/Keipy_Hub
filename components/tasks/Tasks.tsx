@@ -7,14 +7,19 @@ import TaskItem from "@/components/taskItem/TaskItem";
 import { plus } from "@/lib/icons";
 import Modal from "@/components/modals/ModalLayout";
 
-function Tasks() {
-  const { theme, isLoading, openModal, modal, tasks } = useGlobalState();
+interface props {
+  title: string;
+  tasks: any[];
+}
+
+function Tasks({ title, tasks }: props) {
+  const { theme, isLoading, openModal, modal } = useGlobalState();
   return (
     <TaskStyled theme={theme}>
       {modal && <Modal content={<CreateContent />} />}
-      <h1>All Tasks</h1>
-      <div className="tasks">
-        {tasks.map((task: any) => {
+      <h1>{title}</h1>
+      <div className="tasks flex flex-wrap">
+        {tasks.map((task) => {
           return (
             <div className="task" key={task._id}>
               <TaskItem
@@ -81,7 +86,7 @@ const TaskStyled = styled.main`
     align-items: center;
     justify-content: center;
 
-    width: 10vw;
+    min-width: 14vw;
     height: 16rem;
     color: ${(props) => props.theme.colorGrey2};
     font-weight: 600;

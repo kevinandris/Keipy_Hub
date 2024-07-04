@@ -49,7 +49,7 @@ const Topbar = () => {
   return (
     <div className="flex justify-between items-center p-4">
       <Link href="/">
-        <Image src="/keipy.png" height={100} width={200} alt="logo" />
+        <Image src="/keipy-two.png" height={100} width={200} alt="logo" />
       </Link>
 
       <div className="max-md:hidden w-[400px] rounded-full flex">

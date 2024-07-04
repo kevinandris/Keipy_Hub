@@ -91,8 +91,8 @@ export const GlobalProvider = ({ children }) => {
     }
   };
 
+  const prioritizedTasks = tasks.filter((task) => task.IsImportant === true);
   const completedTasks = tasks.filter((task) => task.isCompleted === true);
-  const importantTasks = tasks.filter((task) => task.IsImportant === true);
   const incompleteTasks = tasks.filter((task) => task.isCompleted === false);
 
   return (
@@ -102,8 +102,8 @@ export const GlobalProvider = ({ children }) => {
         tasks,
         deleteTask,
         isLoading,
+        prioritizedTasks,
         completedTasks,
-        importantTasks,
         incompleteTasks,
         updateTask,
         modal,

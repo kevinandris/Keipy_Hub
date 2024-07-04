@@ -16,7 +16,7 @@ interface Props {
 
 // This function
 function TaskItem({ title, description, date, isCompleted, id }: Props) {
-  const { theme, deleteTask, updateTask, todoData } = useGlobalState();
+  const { theme, deleteTask, updateTask } = useGlobalState();
   return (
     <TaskItemStyled theme={theme}>
       <h1>{title}</h1>
@@ -71,7 +71,7 @@ const TaskItemStyled = styled.div`
   box-shadow: ${(props) => props.theme.shadow7};
   border: 2px solid ${(props) => props.theme.colorPurple};
 
-  width: 10vw;
+  min-width: 12vw;
   height: 16rem;
   display: flex;
   flex-direction: column;

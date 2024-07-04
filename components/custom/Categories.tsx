@@ -2,6 +2,7 @@
 import { Category } from "@prisma/client";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import styled from "styled-components";
 
 interface CategoriesProps {
   categories: Category[];
@@ -14,7 +15,7 @@ const Categories = ({ categories, selectedCategory }: CategoriesProps) => {
     router.push(categoryId ? `/categories/${categoryId}` : "/");
   };
   return (
-    <div className="flex flex-wrap px-4 gap-7 justify-center my-10">
+    <CategoryStyle className="flex flex-wrap px-4 gap-7 justify-center my-10">
       <Button
         variant={selectedCategory === null ? "default" : "outline"}
         onClick={() => onClick(null)}
@@ -30,8 +31,14 @@ const Categories = ({ categories, selectedCategory }: CategoriesProps) => {
           {category.name}
         </Button>
       ))}
-    </div>
+    </CategoryStyle>
   );
 };
+
+const CategoryStyle = styled.div`
+  @media screen and (max-width: 768px) {
+    margin-top: 20rem;
+  }
+`;
 
 export default Categories;
