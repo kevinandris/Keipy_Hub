@@ -36,8 +36,24 @@ const Categories = ({ categories, selectedCategory }: CategoriesProps) => {
 };
 
 const CategoryStyle = styled.div`
+  @media screen and (min-width: 2560px) {
+    margin-top: 2rem;
+  }
+
+  @media screen and (max-width: 1565px) {
+    margin-top: 5rem;
+  }
+
+  @media screen and (max-width: 788px) {
+    margin-top: 8rem;
+  }
+
   @media screen and (max-width: 768px) {
-    margin-top: 20rem;
+    margin-top: 23rem;
+  }
+
+  @media screen and (max-height: 812px) {
+    margin-top: 26rem;
   }
 `;
 

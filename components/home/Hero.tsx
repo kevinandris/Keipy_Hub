@@ -16,7 +16,8 @@ const Hero = () => {
         controls={false}
       ></Video>
       <h1 className="title">
-        Learning never exhausts the mind - <span>Leonardo Da Vinci</span>
+        The beautiful thing about learning is that nobody can take it away from
+        you. - <span>B. B. King</span>
       </h1>
     </HeroStyle>
   );
