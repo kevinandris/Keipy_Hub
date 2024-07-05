@@ -26,16 +26,16 @@ const Topbar = () => {
     { label: "Courses", path: "/user-course" },
   ];
 
-  const sidebarRoutes = [
-    {
-      label: "Courses",
-      path: "/instructor/courses",
-    },
-    {
-      label: "Performance",
-      path: "/instructor/performance",
-    },
-  ];
+  // const sidebarRoutes = [
+  //   {
+  //     label: "Dashboard",
+  //     path: "/instructor/courses",
+  //   },
+  //   {
+  //     label: "Income statistics",
+  //     path: "/instructor/performance",
+  //   },
+  // ];
 
   /* for query */
   const [searchInput, setSearchInput] = useState("");
@@ -99,7 +99,7 @@ const Topbar = () => {
                 ))}
               </div>
 
-              {pathName.startsWith("/instructor") && (
+              {/* {pathName.startsWith("/instructor") && (
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-4">
                     {sidebarRoutes.map((route) => (
@@ -113,7 +113,7 @@ const Topbar = () => {
                     ))}
                   </div>
                 </div>
-              )}
+              )} */}
             </SheetContent>
           </Sheet>
         </div>

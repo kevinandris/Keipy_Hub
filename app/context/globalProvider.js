@@ -30,17 +30,6 @@ export const GlobalProvider = ({ children }) => {
     setCollapsed(!collapsed);
   };
 
-  const todoData = async (id) => {
-    setIsLoading(true);
-    try {
-      setModal(true);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
-    }
-  };
-
   /* To represent the created tasks in the frontend */
   const allTasks = async () => {
     setIsLoading(true);
@@ -112,7 +101,6 @@ export const GlobalProvider = ({ children }) => {
         allTasks,
         collapsed,
         collapseMenu,
-        todoData,
       }}
     >
       <GlobalUpdateContext.Provider value={{}}>

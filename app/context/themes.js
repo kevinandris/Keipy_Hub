@@ -14,6 +14,7 @@ const themes = [
     colorbackground: "#FBFBFD",
     colorPurple: "#ead5f4",
     colorPurple1: "#9a369a",
+    colorPurple3: "#842584",
     colorGreenDark: "#27AE60",
     colorGreenLight: "#dbe1e8",
     activeNavLink: "rgba(249,249,249, 0.08)",
