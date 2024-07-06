@@ -48,8 +48,12 @@ const CategoryStyle = styled.div`
     margin-top: 8rem;
   }
 
-  @media screen and (max-width: 768px) {
-    margin-top: 23rem;
+  @media screen and (max-width: 750px) {
+    margin-top: 12rem;
+  }
+
+  @media screen and (max-width: 428px) {
+    margin-top: 22rem;
   }
 
   @media screen and (max-height: 812px) {
