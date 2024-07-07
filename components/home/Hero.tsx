@@ -42,6 +42,8 @@ const HeroStyle = styled.div`
     color: #fff;
     background: linear-gradient(to top, #842584, rgba(0, 0, 0, 0));
   }
+
+
 `;
 
 export default Hero;

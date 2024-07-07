@@ -45,6 +45,12 @@ const FooterStyle = styled.div`
   gap: 50px;
   padding: 30px 70px 0 70px;
 
+  @media screen and (max-width: 384px) {
+    a {
+      display: none;
+    }
+  }
+
   h2 {
     font-weight: 600;
     color: #842584;
