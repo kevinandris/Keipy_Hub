@@ -44,6 +44,10 @@ const CategoryStyle = styled.div`
     margin-top: 5rem;
   }
 
+  @media screen and (max-width: 810px) {
+    margin-top: 10rem;
+  }
+
   @media screen and (max-width: 788px) {
     margin-top: 8rem;
   }
@@ -53,15 +57,23 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-width: 750px) {
-    margin-top: 12rem;
+    margin-top: 18rem;
   }
 
   @media screen and (max-width: 428px) {
     margin-top: 22rem;
   }
 
-  @media screen and (max-height: 812px) {
-    margin-top: 10rem;
+  @media screen and (max-height: 814px) {
+    margin-top: 26rem;
+  }
+
+  @media screen and (max-height: 800px) {
+    margin-top: 26rem;
+  }
+
+  @media screen and (max-height: 760px) {
+    margin-top: 26rem;
   }
 `;
 
