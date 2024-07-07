@@ -36,6 +36,7 @@ const Categories = ({ categories, selectedCategory }: CategoriesProps) => {
 };
 
 const CategoryStyle = styled.div`
+  /* Width */
   @media screen and (min-width: 2560px) {
     margin-top: 2rem;
   }
@@ -44,7 +45,7 @@ const CategoryStyle = styled.div`
     margin-top: 5rem;
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 812px) {
     margin-top: 10rem;
   }
 
@@ -64,16 +65,17 @@ const CategoryStyle = styled.div`
     margin-top: 22rem;
   }
 
-  @media screen and (max-height: 814px) {
+  @media screen and (max-width: 375px) {
     margin-top: 26rem;
   }
 
-  @media screen and (max-height: 800px) {
+  @media screen and (max-width: 360px) {
     margin-top: 26rem;
   }
 
-  @media screen and (max-height: 760px) {
-    margin-top: 26rem;
+  /* Height */
+  @media screen and (max-height: 641px) {
+    margin-top: 12rem;
   }
 `;
 
