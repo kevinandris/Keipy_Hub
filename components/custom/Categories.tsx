@@ -61,7 +61,7 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-height: 812px) {
-    margin-top: 26rem;
+    margin-top: 10rem;
   }
 `;
 
