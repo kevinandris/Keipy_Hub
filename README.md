@@ -64,3 +64,4 @@
    1) When a user presses the "mark as complete" button when they finished a course,
       The complete button and progress bar will not be updated immediatelym unless
       the user refresh the page.
+   2) There is a chance that a user might encounter a 404 page when they log out.
