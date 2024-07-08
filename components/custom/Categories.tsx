@@ -45,6 +45,14 @@ const CategoryStyle = styled.div`
     margin-top: 5rem;
   }
 
+  @media screen and (max-width: 1526px) {
+    margin-top: 10rem;
+  }
+
+  @media screen and (max-width: 1234px) {
+    margin-top: 15rem;
+  }
+
   @media screen and (max-width: 812px) {
     margin-top: 11rem;
   }
@@ -58,7 +66,11 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-width: 750px) {
-    margin-top: 18rem;
+    margin-top: 12rem;
+  }
+
+  @media screen and (max-width: 664px) {
+    margin-top: 5rem;
   }
 
   @media screen and (max-width: 428px) {
@@ -74,16 +86,28 @@ const CategoryStyle = styled.div`
   }
 
   /* Height */
+  /* @media screen and (max-height: 965px) {
+    margin-top: 9rem;
+  } */
+
   @media screen and (max-height: 719px) {
-    margin-top: 8rem;
+    margin-top: 10rem;
   }
 
   @media screen and (max-height: 667px) {
-    margin-top: 28rem;
+    margin-top: 12rem;
+  }
+
+  @media screen and (max-height: 649px) {
+    margin-top: 11rem;
   }
 
   @media screen and (max-height: 641px) {
-    margin-top: 9rem;
+    margin-top: 11rem;
+  }
+
+  @media screen and (max-height: 635px) {
+    margin-top: 12rem;
   }
 `;
 
