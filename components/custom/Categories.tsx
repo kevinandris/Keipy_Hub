@@ -46,7 +46,7 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-width: 812px) {
-    margin-top: 10rem;
+    margin-top: 11rem;
   }
 
   @media screen and (max-width: 788px) {
@@ -62,7 +62,7 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-width: 428px) {
-    margin-top: 22rem;
+    margin-top: 23rem;
   }
 
   @media screen and (max-width: 375px) {
@@ -70,12 +70,20 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-width: 360px) {
-    margin-top: 26rem;
+    margin-top: 27rem;
   }
 
   /* Height */
+  @media screen and (max-height: 719px) {
+    margin-top: 8rem;
+  }
+
+  @media screen and (max-height: 667px) {
+    margin-top: 28rem;
+  }
+
   @media screen and (max-height: 641px) {
-    margin-top: 12rem;
+    margin-top: 9rem;
   }
 `;
 

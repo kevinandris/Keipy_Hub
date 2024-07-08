@@ -21,7 +21,7 @@ const CourseCard = async ({ course }: { course: Course }) => {
   return (
     <Link
       href={`/courses/${course.id}/overview`}
-      className="border rounded-lg cursor-pointer"
+      className="border rounded-lg cursor-pointer hover:shadow-xl transition-shadow duration-200 ease-in-out"
     >
       <Image
         src={course.imageUrl ? course.imageUrl : "/image_placeholder.webp"}
