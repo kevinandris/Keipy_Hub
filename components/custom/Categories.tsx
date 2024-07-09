@@ -41,16 +41,20 @@ const CategoryStyle = styled.div`
     margin-top: 2rem;
   }
 
+  @media screen and (max-width: 1786px) {
+    margin-top: 5rem;
+  }
+
   @media screen and (max-width: 1565px) {
     margin-top: 5rem;
   }
 
-  @media screen and (max-width: 1526px) {
-    margin-top: 10rem;
+  @media screen and (max-width: 1354px) {
+    margin-top: 7rem;
   }
 
-  @media screen and (max-width: 1234px) {
-    margin-top: 15rem;
+  @media screen and (max-width: 1230px) {
+    margin-top: 8rem;
   }
 
   @media screen and (max-width: 812px) {
@@ -70,44 +74,80 @@ const CategoryStyle = styled.div`
   }
 
   @media screen and (max-width: 664px) {
-    margin-top: 5rem;
+    margin-top: 9rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-top: 13rem;
+  }
+
+  @media screen and (max-width: 506px) {
+    margin-top: 16rem;
   }
 
   @media screen and (max-width: 428px) {
-    margin-top: 23rem;
+    margin-top: 22rem;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 378px) {
     margin-top: 26rem;
   }
 
-  @media screen and (max-width: 360px) {
-    margin-top: 27rem;
+  @media screen and (max-width: 342px) {
+    margin-top: 26rem;
+  }
+
+  @media screen and (max-width: 334px) {
+    margin-top: 29rem;
   }
 
   /* Height */
-  /* @media screen and (max-height: 965px) {
-    margin-top: 9rem;
+  /* @media screen and (max-height: 1025px) {
+    margin-top: 6rem;
   } */
 
-  @media screen and (max-height: 719px) {
+  /* @media screen and (max-height: 987px) {
     margin-top: 10rem;
+  } */
+
+  @media screen and (max-height: 760px) {
+    margin-top: 25rem;
+  }
+
+  @media screen and (max-height: 730px) {
+    margin-top: 25rem;
+  }
+
+  @media screen and (max-height: 721px) {
+    margin-top: 24.5rem;
+  }
+
+  @media screen and (max-height: 717px) {
+    margin-top: 24rem;
   }
 
   @media screen and (max-height: 667px) {
-    margin-top: 12rem;
+    margin-top: 30rem;
+  }
+
+  @media screen and (max-height: 664px) {
+    margin-top: 25rem;
+  }
+
+  @media screen and (max-height: 658px) {
+    margin-top: 25rem;
   }
 
   @media screen and (max-height: 649px) {
-    margin-top: 11rem;
+    margin-top: 25rem;
   }
 
   @media screen and (max-height: 641px) {
-    margin-top: 11rem;
+    margin-top: 25rem;
   }
 
-  @media screen and (max-height: 635px) {
-    margin-top: 12rem;
+  @media screen and (max-height: 629px) {
+    margin-top: 25rem;
   }
 `;
 
